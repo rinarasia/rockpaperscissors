@@ -1,20 +1,20 @@
-//define choices
+// Define choices
 const choices = ["rock","paper", "scissors"];
 
-//get player and computer choices
+// Get player and computer choices
 const playerSelection = prompt("Rock, paper, scissors?").toLowerCase();
 const computerSelection = getComputerChoice();
 
-//initialize player and computer score
+// Initialize Player and Computer score
 let playerScore = 0;
 let computerScore = 0;
 
-//randomize computer choice
+// Randomize Computer choice
 function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
-//play single round
+// Play single round
 function playRound(playerSelection, computerSelection) {
     const win = `You win! Your choice ${playerSelection} beats ${computerSelection}.`;
     const lose = `Oh no, you lost. Computer's ${computerSelection} beats your ${playerSelection}.`;
@@ -64,7 +64,7 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-//play game of 5 rounds
+// Play game of 5 rounds
 function game() {
     for (let i = 1; i <= 5; i++) {
             const computerSelection = getComputerChoice(choices);
@@ -81,5 +81,5 @@ function game() {
     }
 }
 
-//call game to play
+// Call game to start
 game();
