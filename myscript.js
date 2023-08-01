@@ -2,7 +2,7 @@
 const choices = ["rock","paper", "scissors"];
 
 //get player and computer choices
-const playerSelection = "rock";
+const playerSelection = prompt("Rock, paper, scissors?").toLowerCase();
 const computerSelection = getComputerChoice();
 
 //initialize player and computer score
@@ -31,6 +31,34 @@ function playRound(playerSelection, computerSelection) {
             case "scissors":
                 playerScore++;
                 return win;
+                break;
+        }
+    } else if (playerSelection == "paper") {
+        switch (computerSelection) {
+            case "rock":
+                playerScore++;
+                return win;
+                break;
+            case "paper":
+                return tie;
+                break;
+            case "scissors":
+                computerScore++;
+                return lose;
+                break;
+        }
+    } else if (playerSelection == "scissors") {
+        switch (computerSelection) {
+            case "rock":
+                computerScore++;
+                return lose;
+                break;
+            case "paper":
+                playerScore++;
+                return win;
+                break;
+            case "scissors":
+                return tie;
                 break;
         }
     }
