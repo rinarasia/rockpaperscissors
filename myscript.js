@@ -32,5 +32,16 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+//play game of 5 rounds
+function game() {
+    for (let i = 1; i <= 5; i++) {
+            const computerSelection = getComputerChoice(choices);
+            console.log(playRound(playerSelection, computerSelection));
+    }
+    console.log(`Player Score: ${playerScore}`);
+    console.log(`Computer Score: ${computerScore}`);
+    
+}
+
 //call game to play
-playRound();
+game();
