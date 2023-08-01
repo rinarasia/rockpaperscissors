@@ -5,6 +5,10 @@ const choices = ["rock","paper", "scissors"];
 const playerSelection = "rock";
 const computerSelection = getComputerChoice();
 
+//initialize player and computer score
+let playerScore = 0;
+let computerScore = 0;
+
 //randomize computer choice
 function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];
@@ -40,7 +44,13 @@ function game() {
     }
     console.log(`Player Score: ${playerScore}`);
     console.log(`Computer Score: ${computerScore}`);
-    
+    if (playerScore === computerScore){
+        console.log("You and Computer tied this game.")
+    } else if (playerScore > computerScore) {
+        console.log("You win this game!!!");
+    } else {
+        console.log("Computer wins this game.");
+    }
 }
 
 //call game to play
