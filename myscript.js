@@ -100,15 +100,15 @@ window.onload = function() {
 
 function playRock() {
     console.log(playRound('rock'));
-    document.getElementById("buttons").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
+    document.getElementById("score").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
 };
 
 function playPaper() {
     console.log(playRound('paper'));
-    document.getElementById("buttons").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
+    document.getElementById("score").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
 };
 
 function playScissors() {
     console.log(playRound('scissors'));
-    document.getElementById("buttons").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
+    document.getElementById("score").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
 };
