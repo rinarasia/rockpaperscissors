@@ -5,16 +5,18 @@ const choices = ["rock","paper", "scissors"];
 let playerScore = 0;
 let computerScore = 0;
 
+let playerSelection;
+let computerSelection;
+
+// Randomize Computer choice
+function getComputerChoice() {
+    return choices[Math.floor(Math.random() * choices.length)];
+}
 
 // Play single round
-function playRound(playerSelection) {
+function playRound(playerSelection) { 
 
-    const computerSelection = getComputerChoice();
-    
-    // Randomize Computer choice
-    function getComputerChoice() {
-        return choices[Math.floor(Math.random() * choices.length)];
-    }
+    computerSelection = getComputerChoice();
 
     const win = `You win! Your choice ${playerSelection} beats ${computerSelection}.`;
     const lose = `Oh no, you lost. Computer's ${computerSelection} beats your ${playerSelection}.`;
@@ -84,6 +86,15 @@ function game() {
 
 // Call game to start
 game();
+
+
+
+    const para = document.createElement("p");
+    const text = document.createTextNode(`You played rock | Computer played ${computerSelection}`);
+    para.appendChild(text);
+
+    const element = document.getElementById("round");
+    element.appendChild(para);
 */
 
 
@@ -99,16 +110,31 @@ window.onload = function() {
 };
 
 function playRock() {
+    playerSelection = "rock";
     console.log(playRound('rock'));
-    document.getElementById("score").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
+    document.getElementById("score").innerHTML = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
+    showRound(playerSelection);
 };
 
 function playPaper() {
+    playerSelection = "paper";
     console.log(playRound('paper'));
     document.getElementById("score").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
+    showRound(playerSelection);
 };
 
 function playScissors() {
+    playerSelection = "scissors";
     console.log(playRound('scissors'));
     document.getElementById("score").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
+    showRound(playerSelection);
 };
+
+function showRound(playerSelection) {
+    const para = document.createElement("p");
+    const text = document.createTextNode(`You played ${playerSelection} | Computer played ${computerSelection}`);
+    para.appendChild(text);
+
+    const element = document.getElementById("round");
+    element.appendChild(para);
+}
