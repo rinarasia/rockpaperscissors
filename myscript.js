@@ -122,7 +122,9 @@ function showRound(playerSelection) {
     para.appendChild(text);
 
     const element = document.getElementById("round");
-    element.appendChild(para);    
+    element.appendChild(para);
+
+    checkRoundNum();
 }
 
 function playComputer(computerSelection) {
@@ -191,4 +193,12 @@ function enableButtons() {
     buttons.forEach(button => {
         button.classList.remove("disable");
       });
+}
+
+function checkRoundNum() {
+    if (playerScore < numOfRounds && computerScore < numOfRounds) {
+        setTimeout(resetComputer, 3000);
+    } else if (playerScore === numOfRounds || computerScore === numOfRounds) {
+        console.log("Game over!!!");
+    }
 }
