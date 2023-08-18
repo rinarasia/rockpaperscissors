@@ -27,53 +27,53 @@ function playRound(playerSelection) {
     const lose = `Oh no, you lost. Computer's ${computerSelection} beats your ${playerSelection}.`;
     const tie = `You have tied with Computer. ${playerSelection} is the same as ${computerSelection}`;
     
-    if (playerSelection == "rock") {
+    if (playerSelection === choices[0]) {
         switch (computerSelection) {
-            case "rock":
+            case choices[0]:
                 playComputer(computerSelection);
                 return tie;
                 break;
-            case "paper":
+            case choices[1]:
                 playComputer(computerSelection);
                 computerScore++;
                 return lose;
                 break;
-            case "scissors":
+            case choices[2]:
                 playComputer(computerSelection);
                 playerScore++;
                 return win;
                 break;
         }
-    } else if (playerSelection == "paper") {
+    } else if (playerSelection === choices[1]) {
         switch (computerSelection) {
-            case "rock":
+            case choices[0]:
                 playComputer(computerSelection);
                 playerScore++;
                 return win;
                 break;
-            case "paper":
+            case choices[1]:
                 playComputer(computerSelection);
                 return tie;
                 break;
-            case "scissors":
+            case choices[2]:
                 playComputer(computerSelection);
                 computerScore++;
                 return lose;
                 break;
         }
-    } else if (playerSelection == "scissors") {
+    } else if (playerSelection === choices[2]) {
         switch (computerSelection) {
-            case "rock":
+            case choices[0]:
                 playComputer(computerSelection);
                 computerScore++;
                 return lose;
                 break;
-            case "paper":
+            case choices[1]:
                 playComputer(computerSelection);
                 playerScore++;
                 return win;
                 break;
-            case "scissors":
+            case choices[2]:
                 playComputer(computerSelection);
                 return tie;
                 break;
@@ -93,74 +93,74 @@ window.onload = function() {
 };
 
 function playRock() {
-    playerSelection = "rock";
+    playerSelection = choices[0];
     console.log(playRound('rock'));
-    document.getElementById("score").innerHTML = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
+    document.getElementById('score').innerHTML = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
     playPlayer(playerSelection);
     showRound(playerSelection);
 };
 
 function playPaper() {
-    playerSelection = "paper";
+    playerSelection = choices[1];
     console.log(playRound('paper'));
-    document.getElementById("score").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
+    document.getElementById('score').innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
     playPlayer(playerSelection);
     showRound(playerSelection);
 };
 
 function playScissors() {
-    playerSelection = "scissors";
+    playerSelection = choices[2];
     console.log(playRound('scissors'));
-    document.getElementById("score").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
+    document.getElementById('score').innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
     playPlayer(playerSelection);
     showRound(playerSelection);
 };
 
 function showRound(playerSelection) {
-    const para = document.createElement("p");
+    const para = document.createElement('p');
     const text = document.createTextNode(`You played ${playerSelection} | Computer played ${computerSelection}`);
     para.appendChild(text);
 
-    const element = document.getElementById("round");
+    const element = document.getElementById('round');
     element.appendChild(para);
 
     checkRoundNum();
 }
 
 function playComputer(computerSelection) {
-    if (computerSelection === "rock") {
-        const comprock = document.getElementById("compRock");
-        comprock.classList.add("down");
-    } else if (computerSelection === "paper") {
-        const comppaper = document.getElementById("compPaper");
-        comppaper.classList.add("down");
-    } else if (computerSelection === "scissors") {
-        const compscissors = document.getElementById("compScissors");
-        compscissors.classList.add("down");
+    if (computerSelection === choices[0]) {
+        const comprock = document.getElementById('compRock');
+        comprock.classList.add('down');
+    } else if (computerSelection === choices[1]) {
+        const comppaper = document.getElementById('compPaper');
+        comppaper.classList.add('down');
+    } else if (computerSelection === choices[2]) {
+        const compscissors = document.getElementById('compScissors');
+        compscissors.classList.add('down');
     }
 }
 
 function resetComputer() {
-    if (computerSelection === "rock") {
-        const comprock = document.getElementById("compRock");
-        comprock.classList.remove("down");
-    } else if (computerSelection === "paper") {
-        const comppaper = document.getElementById("compPaper");
-        comppaper.classList.remove("down");
-    } else if (computerSelection === "scissors") {
-        const compscissors = document.getElementById("compScissors");
-        compscissors.classList.remove("down");
+    if (computerSelection === choices[0]) {
+        const comprock = document.getElementById('compRock');
+        comprock.classList.remove('down');
+    } else if (computerSelection === choices[1]) {
+        const comppaper = document.getElementById('compPaper');
+        comppaper.classList.remove('down');
+    } else if (computerSelection === choices[2]) {
+        const compscissors = document.getElementById('compScissors');
+        compscissors.classList.remove('down');
     }
 
-    if (playerSelection === "rock") {
-        const playerRock = document.getElementById("rock");
-        playerRock.classList.remove("up");
-    } else if (playerSelection === "paper") {
-        const playerPaper = document.getElementById("paper");
-        playerPaper.classList.remove("up");
-    } else if (playerSelection === "scissors") {
-        const playerScissors = document.getElementById("scissors");
-        playerScissors.classList.remove("up");
+    if (playerSelection === choices[0]) {
+        const playerRock = document.getElementById('rock');
+        playerRock.classList.remove('up');
+    } else if (playerSelection === choices[1]) {
+        const playerPaper = document.getElementById('paper');
+        playerPaper.classList.remove('up');
+    } else if (playerSelection === choices[2]) {
+        const playerScissors = document.getElementById('scissors');
+        playerScissors.classList.remove('up');
     }
 
     enableButtons();
@@ -168,15 +168,15 @@ function resetComputer() {
 
 
 function playPlayer(playerSelection) {
-    if (playerSelection === "rock") {
-        const playerRock = document.getElementById("rock");
-        playerRock.classList.add("up");
-    } else if (playerSelection === "paper") {
-        const playerPaper = document.getElementById("paper");
-        playerPaper.classList.add("up");
-    } else if (playerSelection === "scissors") {
-        const playerScissors = document.getElementById("scissors");
-        playerScissors.classList.add("up");
+    if (playerSelection === choices[0]) {
+        const playerRock = document.getElementById('rock');
+        playerRock.classList.add('up');
+    } else if (playerSelection === choices[1]) {
+        const playerPaper = document.getElementById('paper');
+        playerPaper.classList.add('up');
+    } else if (playerSelection === choices[2]) {
+        const playerScissors = document.getElementById('scissors');
+        playerScissors.classList.add('up');
     }
     disableButtons();
 }
@@ -184,14 +184,14 @@ function playPlayer(playerSelection) {
 function disableButtons() {
     const buttons = document.querySelectorAll('button');    
     buttons.forEach(button => {
-        button.classList.add("disable");
+        button.classList.add('disable');
       });
 }
 
 function enableButtons() {
     const buttons = document.querySelectorAll('button');    
     buttons.forEach(button => {
-        button.classList.remove("disable");
+        button.classList.remove('disable');
       });
 }
 
