@@ -34,3 +34,13 @@ img::after {
     pointer-events: none;
     cursor: not-allowed;
 }
+
+.down {
+    transform: translateY(150px);
+    transition: width 2s, height 2s, transform 2s;
+}
+
+.up {
+    transform: translateY(-150px);
+    transition: width 2s, height 2s, transform 2s;
+}
