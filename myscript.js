@@ -80,34 +80,3 @@ function playRound(playerSelection) {
         }
     }
 }
-
-/*
-// Play game of 5 rounds
-function game() {
-    for (let i = 1; i <= 5; i++) {
-            const computerSelection = getComputerChoice(choices);
-            console.log(playRound(playerSelection, computerSelection));
-    }
-    console.log(`Player Score: ${playerScore}`);
-    console.log(`Computer Score: ${computerScore}`);
-    if (playerScore === computerScore){
-        console.log("You and Computer tied this game.")
-    } else if (playerScore > computerScore) {
-        console.log("You win this game!!!");
-    } else {
-        console.log("Computer wins this game.");
-    }
-}
-
-// Call game to start
-game();
-
-
-
-    const para = document.createElement("p");
-    const text = document.createTextNode(`You played rock | Computer played ${computerSelection}`);
-    para.appendChild(text);
-
-    const element = document.getElementById("round");
-    element.appendChild(para);
-*/
