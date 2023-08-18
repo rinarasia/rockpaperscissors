@@ -97,6 +97,7 @@ function playRock() {
     console.log(playRound('rock'));
     document.getElementById("score").innerHTML = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
     playPlayer(playerSelection);
+    showRound(playerSelection);
 };
 
 function playPaper() {
@@ -104,6 +105,7 @@ function playPaper() {
     console.log(playRound('paper'));
     document.getElementById("score").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
     playPlayer(playerSelection);
+    showRound(playerSelection);
 };
 
 function playScissors() {
@@ -111,4 +113,14 @@ function playScissors() {
     console.log(playRound('scissors'));
     document.getElementById("score").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
     playPlayer(playerSelection);
+    showRound(playerSelection);
 };
+
+function showRound(playerSelection) {
+    const para = document.createElement("p");
+    const text = document.createTextNode(`You played ${playerSelection} | Computer played ${computerSelection}`);
+    para.appendChild(text);
+
+    const element = document.getElementById("round");
+    element.appendChild(para);    
+}
