@@ -137,3 +137,41 @@ function playComputer(computerSelection) {
         compscissors.classList.add("down");
     }
 }
+
+function resetComputer() {
+    if (computerSelection === "rock") {
+        const comprock = document.getElementById("compRock");
+        comprock.classList.remove("down");
+    } else if (computerSelection === "paper") {
+        const comppaper = document.getElementById("compPaper");
+        comppaper.classList.remove("down");
+    } else if (computerSelection === "scissors") {
+        const compscissors = document.getElementById("compScissors");
+        compscissors.classList.remove("down");
+    }
+
+    if (playerSelection === "rock") {
+        const playerRock = document.getElementById("rock");
+        playerRock.classList.remove("up");
+    } else if (playerSelection === "paper") {
+        const playerPaper = document.getElementById("paper");
+        playerPaper.classList.remove("up");
+    } else if (playerSelection === "scissors") {
+        const playerScissors = document.getElementById("scissors");
+        playerScissors.classList.remove("up");
+    }
+}
+
+
+function playPlayer(playerSelection) {
+    if (playerSelection === "rock") {
+        const playerRock = document.getElementById("rock");
+        playerRock.classList.add("up");
+    } else if (playerSelection === "paper") {
+        const playerPaper = document.getElementById("paper");
+        playerPaper.classList.add("up");
+    } else if (playerSelection === "scissors") {
+        const playerScissors = document.getElementById("scissors");
+        playerScissors.classList.add("up");
+    }
+}
