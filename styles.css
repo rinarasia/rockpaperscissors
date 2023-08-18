@@ -7,7 +7,13 @@ body {
     
 }
 
-.console, .scoreboard {
+.middle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.console, .scoreboard, .rules {
     background: linear-gradient(rgba(236, 221, 191, 0.5), rgba(255,255,255,.5));
     border: 3px solid #000000;
     border-radius: 15px;
