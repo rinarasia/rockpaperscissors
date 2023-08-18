@@ -1,7 +1,7 @@
 // Define choices
 const choices = ["rock","paper", "scissors"];
 
-// Initialize Variables
+// Initialize Player and Computer choices
 let playerSelection;
 let computerSelection;
 
@@ -125,10 +125,10 @@ function playScissors() {
 function showRound(playerSelection) {
     const para = document.createElement('p');
     const text = document.createTextNode(`You played ${playerSelection} | Computer played ${computerSelection}`);
-    para.appendChild(text);
+    para.prepend(text);
 
     const element = document.getElementById('round');
-    element.appendChild(para);
+    element.prepend(para);
 
     checkRoundNum();
 }
@@ -196,7 +196,7 @@ function checkRoundNum() {
     } else if (playerScore === roundNum || computerScore === roundNum) {
         console.log("Game over!!!");
         setTimeout(resetChoices, 3000);
-        setTimeout(disableChoices, 4000);
+        setTimeout(disableChoices, 3001);
     }
 }
 
