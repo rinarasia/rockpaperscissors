@@ -20,3 +20,17 @@ body {
 img {
     width: 100px;
 }
+
+.player img:hover {
+    border: white solid 5px;
+    border-radius: 15px;
+}
+
+img::after {
+    opacity: 0.5;
+}
+
+.button:active {
+    pointer-events: none;
+    cursor: not-allowed;
+}
