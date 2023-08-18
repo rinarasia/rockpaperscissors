@@ -200,5 +200,7 @@ function checkRoundNum() {
         setTimeout(resetComputer, 3000);
     } else if (playerScore === numOfRounds || computerScore === numOfRounds) {
         console.log("Game over!!!");
+        setTimeout(resetComputer, 3000);
+        setTimeout(disableButtons, 4000);
     }
 }
