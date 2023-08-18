@@ -160,6 +160,8 @@ function resetComputer() {
         const playerScissors = document.getElementById("scissors");
         playerScissors.classList.remove("up");
     }
+
+    enableButtons();
 }
 
 
@@ -174,4 +176,19 @@ function playPlayer(playerSelection) {
         const playerScissors = document.getElementById("scissors");
         playerScissors.classList.add("up");
     }
+    disableButtons();
+}
+
+function disableButtons() {
+    const buttons = document.querySelectorAll('button');    
+    buttons.forEach(button => {
+        button.classList.add("disable");
+      });
+}
+
+function enableButtons() {
+    const buttons = document.querySelectorAll('button');    
+    buttons.forEach(button => {
+        button.classList.remove("disable");
+      });
 }
