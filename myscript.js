@@ -124,3 +124,16 @@ function showRound(playerSelection) {
     const element = document.getElementById("round");
     element.appendChild(para);    
 }
+
+function playComputer(computerSelection) {
+    if (computerSelection === "rock") {
+        const comprock = document.getElementById("compRock");
+        comprock.classList.add("down");
+    } else if (computerSelection === "paper") {
+        const comppaper = document.getElementById("compPaper");
+        comppaper.classList.add("down");
+    } else if (computerSelection === "scissors") {
+        const compscissors = document.getElementById("compScissors");
+        compscissors.classList.add("down");
+    }
+}
