@@ -10,7 +10,7 @@ let playerScore = 0;
 let computerScore = 0;
 
 // Set number of rounds
-let numOfRounds = 5;
+let roundNum = 5;
 
 
 // Randomize Computer choice
@@ -159,7 +159,7 @@ function playPlayer(playerSelection) {
         const playerScissors = document.getElementById('scissors');
         playerScissors.classList.add('up');
     }
-    disableButtons();
+    disableChoices();
 }
 
 // Reset Player and Computer choices to original position
@@ -186,22 +186,22 @@ function resetChoices() {
         playerScissors.classList.remove('up');
     }
 
-    enableButtons();
+    enableChoices();
 }
 
 // Check round and set timing of Player and Computer choice reset
 function checkRoundNum() {
-    if (playerScore < numOfRounds && computerScore < numOfRounds) {
+    if (playerScore < roundNum && computerScore < roundNum) {
         setTimeout(resetChoices, 3000);
-    } else if (playerScore === numOfRounds || computerScore === numOfRounds) {
+    } else if (playerScore === roundNum || computerScore === roundNum) {
         console.log("Game over!!!");
         setTimeout(resetChoices, 3000);
-        setTimeout(disableButtons, 4000);
+        setTimeout(disableChoices, 4000);
     }
 }
 
 // Disable Player choices
-function disableButtons() {
+function disableChoices() {
     const buttons = document.querySelectorAll('button');    
     buttons.forEach(button => {
         button.classList.add('disable');
@@ -209,7 +209,7 @@ function disableButtons() {
 }
 
 // Enable Player choices
-function enableButtons() {
+function enableChoices() {
     const buttons = document.querySelectorAll('button');    
     buttons.forEach(button => {
         button.classList.remove('disable');
