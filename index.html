@@ -9,16 +9,38 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div class="console">
+    <div class="title">
         <h1>Rock, Paper, Scissors</h1>
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
     </div>
-    <div class="scoreboard">
-        <h1>Scoreboard</h1>
-        <div id="score">Player Score: 0 Computer Score: 0</div>
-        <div id="round"></div>
+        <div class="console">
+            <div class="computer">
+                <h2>Computer:</h2>
+                <img id="compRock" src="images/rock.png">
+                <img id="compPaper" src="images/paper.png">
+                <img id="compScissors" src="images/scissors.png">
+            </div>
+            <div class="chosen">
+                <div class="row">
+                    <div class="column" style="background-color:lightcoral;">
+                    <h2 id="compPlay">Column 1</h2>
+                    </div>
+                    <div class="column" style="background-color:lightblue;">
+                    <h2 id="playerPlay">Column 2</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="player">
+                <button><img id="rock" src="images/rock.png"></button>
+                <button><img id="paper" src="images/paper.png"></button>
+                <button><img id="scissors" src="images/scissors.png"></button>
+                <h2>Player:</h2>
+            </div>
+        </div>
+        <div class="scoreboard">
+            <h1>Scoreboard</h1>
+            <div id="score">Player Score: 0 Computer Score: 0</div>
+            <div id="round"></div>
+        </div>
     </div>
 </body>
 </html>
