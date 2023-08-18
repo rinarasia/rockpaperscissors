@@ -80,3 +80,35 @@ function playRound(playerSelection) {
         }
     }
 }
+
+window.onload = function() {
+    const rockBtn = document.querySelector('#rock');
+    rockBtn.addEventListener('click', playRock);
+
+    const paperBtn = document.querySelector('#paper');
+    paperBtn.addEventListener('click', playPaper);
+
+    const scissorsBtn = document.querySelector('#scissors');
+    scissorsBtn.addEventListener('click', playScissors);
+};
+
+function playRock() {
+    playerSelection = "rock";
+    console.log(playRound('rock'));
+    document.getElementById("score").innerHTML = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
+    playPlayer(playerSelection);
+};
+
+function playPaper() {
+    playerSelection = "paper";
+    console.log(playRound('paper'));
+    document.getElementById("score").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
+    playPlayer(playerSelection);
+};
+
+function playScissors() {
+    playerSelection = "scissors";
+    console.log(playRound('scissors'));
+    document.getElementById("score").innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
+    playPlayer(playerSelection);
+};
