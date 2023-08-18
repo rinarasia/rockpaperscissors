@@ -13,15 +13,7 @@
         <h1>Rock, Paper, Scissors</h1>
     </div>
     <div class="middle">
-        <div class="rules">
-            <h2>Rules</h2>
-            <ol>
-                <li>Rock wins against Scissors.</li>
-                <li>Scissors wins against Paper.</li>
-                <li>Paper wins against Rock.</li>
-            </ol>
-        </div>
-        <div class="console">
+        <div class="console container">
             <div class="computer">
                 <h2>Computer:</h2>
                 <img id="compRock" src="images/rock.png">
@@ -30,10 +22,10 @@
             </div>
             <div class="chosen">
                 <div class="row">
-                    <div class="column" style="background-color:lightcoral;">
+                    <div class="column" style="background-color:lightcoral; height: 7em;">
                     <h2 id="compPlay">Column 1</h2>
                     </div>
-                    <div class="column" style="background-color:lightblue;">
+                    <div class="column" style="background-color:lightblue; height: 7em;">
                     <h2 id="playerPlay">Column 2</h2>
                     </div>
                 </div>
@@ -45,10 +37,20 @@
                 <h2>Player:</h2>
             </div>
         </div>
-        <div class="scoreboard">
-            <h1>Scoreboard</h1>
-            <div id="score">Player Score: 0 Computer Score: 0</div>
-            <div id="round"></div>
+        <div class="sidebar">
+            <div class="rules column container">
+                <h2>Rules</h2>
+                <ol>
+                    <li>Rock wins against Scissors.</li>
+                    <li>Scissors wins against Paper.</li>
+                    <li>Paper wins against Rock.</li>
+                </ol>
+            </div>
+            <div class="scoreboard column container">
+                <h2>Scoreboard</h2>
+                <div id="score">Player Score: 0 Computer Score: 0</div>
+                <div id="round"></div>
+            </div>
         </div>
     </div>
 </body>
