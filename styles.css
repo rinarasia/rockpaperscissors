@@ -6,7 +6,6 @@ body {
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
-    
 }
 
 .header {
@@ -50,7 +49,7 @@ img {
 .character {
     width: 50%;
     position: relative;
-    margin-left: -50em;
+    margin-left: -22em;
     top: -22em;
     padding: 0;
 }
@@ -59,7 +58,8 @@ img {
     width: 50%;
     position: relative;
     right: -22em;
-    bottom: 8em;
+    bottom: -1em;
+    padding: 0;
 }
 
 .player img:hover {
