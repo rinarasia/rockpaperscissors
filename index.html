@@ -17,45 +17,60 @@
         <div class="sidebar">
             <div class="rules container">
                 <h2>RULES</h2>
-                <ol>
-                    <li>Rock wins against Scissors.</li>
-                    <li>Scissors wins against Paper.</li>
-                    <li>Paper wins against Rock.</li>
-                </ol>
-            </div>
-        </div>
-        <div class="console container">
-            
-                <h2>Computer:</h2>
-                <img class="computer" id="compRock" src="images/rock.png">
-                <img class="computer" id="compPaper" src="images/paper.png">
-                <img class="computer" id="compScissors" src="images/scissors.png">
-            <div class="chosen">
-                <div class="row">
-                    <div class="column" style="background-color:  lightcoral; height: 7em;">
-                    <h2 id="compPlay">Column 1</h2>
-                    <img class="character" src="images/character.png">
-                    <img class="character2" src="images/character2.png">
-
-                    </div>
-                    <div class="column" style="background-color:lightblue; height: 7em;">
-                    <h2 id="playerPlay">Column 2</h2>
-                    </div>
+                <ul>
+                    <li>Rock beats Scissors.</li>
+                    <li>Scissors beats Paper.</li>
+                    <li>Paper beats Rock.</li>
+                </ul>
+                <br>
+                <h3 style="background-color: rgba(236, 221, 191, 0.6); border: 1px solid #000000; padding: 5px 0px;">Welcome to the Stone Age!</h3>
+                <div style="text-align: justify;">
+                    <p>Pterra has challenged you to a game of Rock, Paper, Scissors to determine who will be named <b>Supreme Dinosaur</b>.</p>
+                    <br>
+                    <p>To play, click on an object (Rock, Paper, or Scissors) to play that object against Pterra. If your choice beats Pterra, you win a point! If your choice loses to Pterra, Pterra wins a point. If you and Pterra choose the same object, the round ends in a draw.</p>
+                    <br>
+                    <p>In order to win the game, you must earn <b>5 Points</b> before Pterra does.</p>
                 </div>
             </div>
+        </div>
+
+        <div class="container console">
+            <h2>Pterra</h2>
+            <img class="compChoice" id="compRock" src="images/rock.png">
+            <img class="compChoice" id="compPaper" src="images/paper.png">
+            <img class="compChoice" id="compScissors" src="images/scissors.png">
+
+            <div class="column" style="background-color:  lightcoral; height: 7em;">
+                <h1 id="redColumn">Wanna play?</h1>
+                <img class="redCharacter" src="images/character.png">
+                <img class="blueCharacter" src="images/character2.png">
+            </div>
+
+            <div class="column" style="background-color:lightblue; height: 7em;">
+                <h1 id="blueColumn">You start!</h1>
+            </div>
+
             <div class="player">
-                <button><img class="icon" id="rock" src="images/rock.png"></button>
-                <button><img class="icon" id="paper" src="images/paper.png"></button>
-                <button><img class="icon" id="scissors" src="images/scissors.png"></button>
-                <h2>Player:</h2>
+                <button class="playerChoice" id="rock"><img src="images/rock.png"></button>
+                <button class="playerChoice" id="paper"><img src="images/paper.png"></button>
+                <button class="playerChoice" id="scissors"><img src="images/scissors.png"></button>
+                <h2 class="name"></h2>
             </div>
         </div>
+
         <div class="sidebar">
             <div class="scoreboard container">
                 <h2>SCOREBOARD</h2>
-                <div id="score">Player Score: 0 Computer Score: 0</div>
+                <div id="computerScore"></div>
+                <div id="playerScore"></div>
                 <u><h3>GOAL: 5 Points</h3></u>
-                <div id="round"></div>
+                <table id="round">
+                    <tr style="border: 1px solid #000000;">
+                        <th>Round</th>
+                        <th>Pterra</th>
+                        <th class="name"></th>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>

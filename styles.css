@@ -14,47 +14,64 @@ body {
     padding: 0;
 }
 
+h2 {
+    font-size: 25px;
+}
+
+/* Middle section of page */
 .middle {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 75px;
+    margin-top: 70px;
 }
 
+/* Container with transparent background */
 .container {
-    background: linear-gradient(rgba(236, 221, 191, 0.5), rgba(255,255,255,.5));
-    border: 3px solid #000000;
+    background: linear-gradient(rgba(236, 221, 191, 0.6), rgba(255,255,255,.6));
+    border: 3px solid #833d0f;
     border-radius: 15px;
     padding: 10px;
     margin: 10px;
     height: 42em;
 }
 
+/* Area for gameplay */
 .console {
     flex: 40%;
     margin: 0 5em;
     padding: 0;
 }
 
+/* Division between Computer and Player */
+.column {
+    padding: 18px;
+}
+
+/* Left and right sidebars */
+.sidebar {
+    width: 20%;
+    margin-right: 10px;
+    padding-left: 10px;
+}
+
 .scoreboard, .rules {
     overflow: auto;
     margin: 0;
-    padding: 0;
+    padding: 5px 10px;
 }
 
-img {
-    width: 100px;
-}
-
-.character {
+/* Character for Computer */
+.redCharacter {
     width: 50%;
     position: relative;
     margin-left: -22em;
-    top: -22em;
+    top: -25em;
     padding: 0;
 }
 
-.character2 {
+/* Character for Player */
+.blueCharacter {
     width: 50%;
     position: relative;
     right: -22em;
@@ -62,12 +79,32 @@ img {
     padding: 0;
 }
 
+/* Gameplay Computer and Player choices */
+img {
+    width: 100px;
+}
+
 .player img:hover {
-    padding: 10px;
     border: white solid 5px;
     border-radius: 100px;
 }
 
+button {
+    background: rgba(173, 216, 230, 0.7);
+    border: 3px lightblue solid;
+    padding: 10px;
+    border-radius: 100px;
+    margin-top: 5px;
+}
+
+.compChoice {
+    background: rgb(240, 128, 128, 0.7);
+    border: 3px lightcoral solid;
+    padding: 10px;
+    border-radius: 100px;
+}
+
+/* Transformation of choices */
 .down {
     transform: translateY(150px);
     transition: width 2s, height 2s, transform 2s;
@@ -78,35 +115,32 @@ img {
     transition: width 2s, height 2s, transform 2s;
 }
 
-.column {
-    padding: 20px;
-}
-
-.sidebar {
-    width: 20%;
-    margin-right: 10px;
-    padding-left: 10px;
-}
-
+/* Control mouse during gameplay */
 .disable {
     pointer-events: none;
     cursor: not-allowed;
 }
 
-h2 {
+/* Table for scoreboard */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: rgba(236, 221, 191, 0.6);
+}
+  
+td, th {
+    text-align: center;
+    padding: 8px;
+}
+
+/* Play again button */
+.refresh {
     font-size: 25px;
+    box-shadow: 5px 10px #000000;
 }
 
-button {
-    background: rgb(255, 196, 0, 0.4);
-    border: 3px rgb(255, 196, 0) solid;
-    padding: 10px;
-    border-radius: 100px;
-}
-
-.computer {
-    background: rgb(240, 128, 128, 0.7);
-    border: 3px lightcoral solid;
-    padding: 10px;
-    border-radius: 100px;
+.refresh:hover {
+    background-color: rgb(63, 116, 177);
+    color:rgb(255, 255, 255);
 }

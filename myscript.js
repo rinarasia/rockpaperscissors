@@ -10,8 +10,12 @@ let playerScore = 0;
 let computerScore = 0;
 
 // Set number of rounds
+let round = 0;
 let roundNum = 5;
 
+// Set Player and Computer names
+let player = "Littlefoot";
+let computer = "Pterra";
 
 // Randomize Computer choice
 function getComputerChoice() {
@@ -82,8 +86,16 @@ function playRound(playerSelection) {
 }
 
 
-// On load, allow Player Selection
+// On load, show points and allow Player Selection
 window.onload = function() {
+    document.getElementById('playerScore').innerHTML = `${player} Points: ${playerScore}`;
+    document.getElementById('computerScore').innerHTML = `${computer} Points: ${computerScore}`;
+
+    const elements = document.getElementsByClassName('name');
+    Array.prototype.forEach.call(elements, function (element) {
+        element.innerHTML = `${player}`;
+    });
+
     const rockBtn = document.querySelector('#rock');
     rockBtn.addEventListener('click', playRock);
 
@@ -98,7 +110,7 @@ window.onload = function() {
 function playRock() {
     playerSelection = choices[0];
     console.log(playRound('rock'));
-    document.getElementById('score').innerHTML = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
+    updateScore();
     playPlayer(playerSelection);
     showRound(playerSelection);
 };
@@ -107,7 +119,7 @@ function playRock() {
 function playPaper() {
     playerSelection = choices[1];
     console.log(playRound('paper'));
-    document.getElementById('score').innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
+    updateScore();
     playPlayer(playerSelection);
     showRound(playerSelection);
 };
@@ -116,19 +128,39 @@ function playPaper() {
 function playScissors() {
     playerSelection = choices[2];
     console.log(playRound('scissors'));
-    document.getElementById('score').innerHTML = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
+    updateScore();
     playPlayer(playerSelection);
     showRound(playerSelection);
 };
 
-// Display results of round
-function showRound(playerSelection) {
-    const para = document.createElement('p');
-    const text = document.createTextNode(`You played ${playerSelection} | Computer played ${computerSelection}`);
-    para.prepend(text);
+// Update score on scoreboard
+function updateScore() {
+    document.getElementById('playerScore').innerHTML = `${player} Points: ${playerScore}`;
+    document.getElementById('computerScore').innerHTML = `${computer} Points: ${computerScore}`;
+}
 
-    const element = document.getElementById('round');
-    element.prepend(para);
+// Display results of round in table
+function showRound(playerSelection) {
+    round++;
+
+    const row = document.createElement('tr');
+    const roundTable = document.createElement('td');
+    const roundText = document.createTextNode(`${round}`);
+    
+    const player = document.createElement('td');
+    const playerText = document.createTextNode(`${playerSelection}`);
+
+    const computer = document.createElement('td');
+    const computerText = document.createTextNode(`${computerSelection}`);
+    
+    const rowClose = document.createElement('tr');
+    
+    roundTable.append(roundText);
+    player.append(playerText);
+    computer.append(computerText);
+
+    const table = document.getElementById('round');
+    table.append(roundTable, computer, player, rowClose);
 
     checkRoundNum();
 }
@@ -192,9 +224,22 @@ function resetChoices() {
 // Check round and set timing of Player and Computer choice reset
 function checkRoundNum() {
     if (playerScore < roundNum && computerScore < roundNum) {
+        let red = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+        let blue = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+
+        document.getElementById('redColumn').innerHTML = `${red}`;
+        document.getElementById('blueColumn').innerHTML = `${blue}`;
         setTimeout(resetChoices, 3000);
-    } else if (playerScore === roundNum || computerScore === roundNum) {
-        console.log("Game over!!!");
+
+    } else if (playerScore === roundNum) {
+        document.getElementById('redColumn').innerHTML = "You win :) Game over!";
+        playAgain();
+        setTimeout(resetChoices, 3000);
+        setTimeout(disableChoices, 3001);
+
+    } else if (computerScore === roundNum) {
+        document.getElementById('redColumn').innerHTML = "You lose :( Game over!";
+        playAgain();
         setTimeout(resetChoices, 3000);
         setTimeout(disableChoices, 3001);
     }
@@ -202,7 +247,7 @@ function checkRoundNum() {
 
 // Disable Player choices
 function disableChoices() {
-    const buttons = document.querySelectorAll('button');    
+    const buttons = document.querySelectorAll('button.playerChoice');    
     buttons.forEach(button => {
         button.classList.add('disable');
       });
@@ -210,8 +255,24 @@ function disableChoices() {
 
 // Enable Player choices
 function enableChoices() {
-    const buttons = document.querySelectorAll('button');    
+    const buttons = document.querySelectorAll('button.playerChoice');    
     buttons.forEach(button => {
         button.classList.remove('disable');
       });
+}
+
+// Show Play Again button
+function playAgain() {
+    document.getElementById('blueColumn').innerHTML = "";
+
+    let button = document.createElement('button');
+    button.innerHTML = "Play again?";
+    button.classList.add('refresh');
+
+    let results = document.getElementById('blueColumn');
+    results.appendChild(button);
+
+    button.addEventListener("click", function() {
+        window.location.reload();
+    });
 }
